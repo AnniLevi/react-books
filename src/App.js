@@ -1,3 +1,4 @@
+import BookList from "./components/BookList";
 import { useState } from "react";
 import BookCreate from "./components/BookCreate";
 
@@ -18,8 +19,8 @@ function App() {
   };
 
   return (
-    <div>
-      {books.length}
+    <div className="app">
+      <BookList books={books} />
       <BookCreate onCreate={handleCreateBook} />
     </div>
   );
