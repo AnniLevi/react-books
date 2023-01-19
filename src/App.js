@@ -22,7 +22,7 @@ function App() {
     setBooks(updatedBooks);
   };
 
-  const handleCreateBook = (title) => {
+  const createBook = (title) => {
     // BAD CODE
     // books.push({id: 123, title: title});  // modifies an existing array directly, will not be re-rendered
     // setBooks(books);
@@ -39,7 +39,7 @@ function App() {
     <div className="app">
       <h1>Reading List</h1>
       <BookList books={books} onEdit={editBookById} onDelete={deleteBookById} />
-      <BookCreate onCreate={handleCreateBook} />
+      <BookCreate onCreate={createBook} />
     </div>
   );
 }
