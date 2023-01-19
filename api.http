@@ -1,0 +1,27 @@
+# get all books
+GET http://{{host}}/books HTTP/1.1
+Content-Type: application/json
+
+###
+# create a new book
+POST http://{{host}}/books HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Harry Potter"
+}
+
+###
+# update a book by id
+PUT http://{{host}}/books HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Harry Potter2"
+}
+
+###
+# delete a book by id
+DELETE http://{{host}}/books/1 HTTP/1.1
+Content-Type: application/json
+
