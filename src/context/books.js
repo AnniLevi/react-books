@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useCallback } from "react";
 import axios from "axios";
 
 const apiUrl = process.env.REACT_APP_API_URL;
@@ -8,11 +8,14 @@ const BooksContext = createContext();
 function Provider({ children }) {
   const [books, setBooks] = useState([]);
 
-  const fetchBooks = async () => {
+  const fetchBooks = useCallback(async () => {
     const response = await axios.get(`${apiUrl}/books`);
 
     setBooks(response.data);
-  };
+  }, []);
+
+  // the same
+  // const stableFetchBooks = useCallback(fetchBooks, []);
 
   const editBookById = async (id, newTitle) => {
     const response = await axios.put(`${apiUrl}/books/${id}`, {
